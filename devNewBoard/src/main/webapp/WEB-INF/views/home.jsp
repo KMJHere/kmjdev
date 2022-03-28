@@ -5,6 +5,9 @@
 <html>
 <head>
 	<title>Home</title>
+	<script src="Unify1.6/assets/plugins/jquery/jquery.min.js"></script>
+	<script src="Unify1.6/assets/plugins/jquery/jquery-migrate.min.js"></script>
+	<script src="Unify1.6/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
 <!-- Main content -->
