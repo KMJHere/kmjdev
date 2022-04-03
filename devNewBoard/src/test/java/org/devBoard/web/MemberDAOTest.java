@@ -25,7 +25,7 @@ public class MemberDAOTest {
 	public void testInserMember()throws Exception {
 		
 		MemberVO vo = new MemberVO();
-		vo.setUserid("kmja");
+		vo.setUserid("kmjs");
 		vo.setUserpw("1234");
 		vo.setUsername("±ËπŒ¡§");
 		vo.setEmail("znr119@naver.com");
