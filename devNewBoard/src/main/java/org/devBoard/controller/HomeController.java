@@ -1,4 +1,4 @@
-package org.devBoard.web;
+package org.devBoard.controller;
 
 import java.text.DateFormat;
 import java.util.Date;

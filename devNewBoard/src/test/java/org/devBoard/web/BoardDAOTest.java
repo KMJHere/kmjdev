@@ -43,8 +43,13 @@ public class BoardDAOTest {
 	}
 	
 	@Test
+	public void testDeleteBoard()throws Exception {		
+		dao.delete(1);
+	}
+	
+	@Test
 	public void testRead()throws Exception {
-		//logger.info(dao.read(1).toString()); 
+		logger.info(dao.read(1).toString()); 
 	}
 
 }

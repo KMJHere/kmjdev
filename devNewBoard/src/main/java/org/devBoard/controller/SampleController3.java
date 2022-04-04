@@ -1,4 +1,4 @@
-package org.devBoard.web;
+package org.devBoard.controller;
 
 import org.devBoard.domain.ProductVO;
 import org.slf4j.Logger;

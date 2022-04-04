@@ -8,7 +8,7 @@
 			bno,
 			title,
 			content,
-			wirter,
+			writer,
 			regdate,
 			viewcnt
 		From

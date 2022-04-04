@@ -1,4 +1,4 @@
-package org.devBoard.web;
+package org.devBoard.controller;
 
 import java.util.Map;
 
