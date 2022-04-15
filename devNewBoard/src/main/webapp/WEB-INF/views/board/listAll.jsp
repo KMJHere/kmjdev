@@ -1,24 +1,142 @@
-<!DOCTYPE html>
-<html>
-<head> 
-<meta charset="utf-8">
-</head> 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ page session="false" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<!DOCTYPE html> 
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<title>등록</title>
+	 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+	<!-- Favicon -->
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <!-- CSS Global Compulsory -->
+    <link rel="stylesheet" href="/assets/plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+
+    <!-- CSS Implementing Plugins -->
+    <link rel="stylesheet" href="/assets/plugins/line-icons/line-icons.css">
+    <link rel="stylesheet" href="/assets/plugins/font-awesome/css/font-awesome.min.css">
+
+    <!-- CSS Page Style -->    
+    <link rel="stylesheet" href="/assets/css/pages/blog.css">
+
+    <!-- CSS Theme -->    
+    <link rel="stylesheet" href="/assets/css/theme-colors/default.css">
+
+    <!-- CSS Customization -->
+    <link rel="stylesheet" href="/assets/css/custom.css">
+</head>
 <body>
+	<div class="wrapper">
+		<!--=== Header ===-->    
+    <div class="header">
+        <!-- Topbar -->
+        <div class="topbar">
+            <div class="container">
+                <!-- Topbar Navigation -->
+                <ul class="loginbar pull-right">
+                    <li>
+                        <i class="fa fa-globe"></i>
+                        <a>Languages</a>
+                        <ul class="languages">
+                            <li class="active">
+                                <a href="#">English <i class="fa fa-check"></i></a> 
+                            </li>
+                            <li><a href="#">Spanish</a></li>
+                            <li><a href="#">Russian</a></li>
+                            <li><a href="#">German</a></li>
+                        </ul>
+                    </li>
+                    <li class="topbar-devider"></li>   
+                    <li><a href="page_faq.html">Help</a></li>  
+                    <li class="topbar-devider"></li>   
+                    <li><a href="page_login.html">Login</a></li>   
+                </ul>
+                <!-- End Topbar Navigation -->
+            </div>
+        </div>
+        <!-- End Topbar -->
+        <!-- Navbar -->
+        <div class="navbar navbar-default mega-menu" role="navigation">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="fa fa-bars"></span>
+                    </button>
+                    <a class="navbar-brand" href="/">
+                        <img id="logo-header" src="/assets/img/oneday-logo.png" alt="Logo">
+                    </a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse navbar-responsive-collapse">
+                    <ul class="nav navbar-nav">
+                        <!-- Blog -->
+                        <li class="dropdown active">
+                            <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
+                                Class
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="blog_page.html">Blog Page</a></li>
+                                <li><a href="blog_large.html">Blog Large</a></li>
+                                <li><a href="blog_medium.html">Blog Medium</a></li>
+                                <li class="active"><a href="blog_full_width.html">Blog Full Width</a></li>
+                            </ul>
+                        </li>
+                        <!-- End Blog -->
+                        <!-- Search Block -->
+                        <li>
+                            <i class="search fa fa-search search-btn"></i>
+                            <div class="search-open">
+                                <div class="input-group animated fadeInDown">
+                                    <input type="text" class="form-control" placeholder="Search">
+                                    <span class="input-group-btn">
+                                        <button class="btn-u" type="button">Go</button>
+                                    </span>
+                                </div>
+                            </div>    
+                        </li>
+                        <!-- End Search Block -->
+                    </ul>
+                </div><!--/navbar-collapse-->
+            </div>    
+        </div>            
+        <!-- End Navbar -->
+    </div>
+    <!--=== End Header ===--> 
+    <div class="container content blog-full-width">	 
 	<table class="table table-bordered">
 		<tr>
-			<th style="width: 10px">BNO</th>
-			<th>TITLE</th>
-			<th>WRITER</th>
-			<th>REGDATE</th>
+			<th style="width: 15px">NO</th>
+			<th>제목</th>
+			<th>작성자</th>
+			<th>작성일자</th>
 			<th style="width: 40px">VIEWCNT</th>
 		</tr>
+		<c:forEach items="${list}" var="boardVO">
+			<tr>
+				<td>${boardVO.bno}</td>
+				<td><a href="/board/read?bno=${boardVO.bno}">${boardVO.title}</a></td>
+				<td>${boardVO.writer}</td>
+				<td><fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${boardVO.regdate}"/></td>
+				<td><span class="badge bg-red">${boardVO.viewcnt}</span></td>
+			</tr>
+		</c:forEach>
 	</table>
+	</div>
 <script>
 	var result = "${msg}";
 	
-	if(result = "success") {
+	if(result == "success") {
 		alert("정상적으로 등록되었습니다."); 
-	} 
+	}  
 </script>
+</div>
 </body>
 </html>

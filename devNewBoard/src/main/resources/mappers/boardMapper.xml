@@ -12,7 +12,7 @@
 			regdate,
 			viewcnt
 		From
-			tbl_board
+			tbl_board 
 		Where bno = #{bno}
 	</select>
 	
@@ -31,7 +31,7 @@
 			And bno > 0
 			Order By
 				bno Desc,
-				redate Desc
+				regdate Desc 
 		]]>
 	</select>
 	

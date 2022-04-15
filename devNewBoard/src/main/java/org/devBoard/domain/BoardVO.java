@@ -8,7 +8,7 @@ public class BoardVO {
 	private String content;
 	private String writer;
 	private Date regdate;
-	//private int viewcnt;		
+	private int viewcnt;		
 
 	public Integer getbno() {
 		return bno;
@@ -48,5 +48,13 @@ public class BoardVO {
 
 	public void setregdate(Date regdate) {
 		this.regdate = regdate;
+	}
+	
+	public Integer getviewcnt() {
+		return viewcnt;
+	}
+
+	public void setviewcnt(Integer viewcnt) {
+		this.viewcnt = viewcnt;
 	}
 }
