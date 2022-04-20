@@ -29,6 +29,7 @@
 
     <!-- CSS Customization -->
     <link rel="stylesheet" href="/assets/css/custom.css">
+   <script src="//code.jquery.com/jquery.min.js"></script>
 </head>
 <body>
 	<div class="wrapper">
@@ -124,24 +125,30 @@
     <!--=== End Breadcrumbs ===-->
     
     <div class="container content blog-full-width">	    
-	<table class="table table-bordered">
-		<tr>
-			<th style="width: 15px">NO</th>
-			<th>제목</th>
-			<th>작성자</th>
-			<th>작성일자</th>
-			<th style="width: 40px">VIEWCNT</th>
-		</tr>
-		<c:forEach items="${list}" var="boardVO">
-			<tr>
-				<td>${boardVO.bno}</td>
-				<td><a href="/board/read?bno=${boardVO.bno}">${boardVO.title}</a></td>
-				<td>${boardVO.writer}</td>
-				<td><fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${boardVO.regdate}"/></td>
-				<td><span class="badge bg-red">${boardVO.viewcnt}</span></td>
-			</tr>
-		</c:forEach>
-	</table>
+	<form role="form" method="post">
+		<input type="hidden" name="bno" value="${boardVO.bno}">
+	</form>
+	
+	<div class="box-body">
+		<div class="form-group">
+			<label for="exampleInputEmail1">제목</label>
+			<input type="text" name="title" class="form-control" value="${boardVO.title}" readonly="readonly"> 			
+		</div>
+		<div class="form-group">
+			<label for="exampleInputPassword1">내용</label>
+			<textarea class="form-control" name="content" rows="3" readonly="readonly">${boardVO.content}</textarea> 			
+		</div>
+		<div class="form-group">
+			<label for="exampleInputEmail1">작성자</label>
+			<input type="text" name="writer" class="form-control" value="${boardVO.writer}" readonly="readonly"> 			
+		</div>
+	</div>
+	
+	<div class="box-footer">
+		<button type="submit" class="btn btn-warning">Modify</button>
+		<button type="submit" class="btn btn-danger">REMOVE</button>
+		<button type="submit" class="btn btn-primary">LIST ALL</button>
+	</div>
 	</div>
 <script>
 	var result = "${msg}";
@@ -149,6 +156,27 @@
 	if(result == "success") {
 		alert("정상적으로 등록되었습니다."); 
 	}  
+	
+	$(document).ready(function(){
+		var formObj = $("form[role='form']");
+		
+		console.log(formObj);
+		
+		$(".btn-warning").on("click", function(){
+			formObj.attr("action", "/board/modify");
+			formObj.attr("method", "get");
+			formObj.submit();
+		});
+		
+		$(".btn-danger").on("click", function(){
+			formObj.attr("action", "/board/remove");
+			formObj.submit();
+		});
+		
+		$(".btn-primary").on("click", function(){
+			self.location = "/board/listAll";
+		});
+	});
 </script>
 </div>
 </body>

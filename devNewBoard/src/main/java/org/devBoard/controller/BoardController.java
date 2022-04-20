@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 /**
@@ -46,5 +47,19 @@ public class BoardController {
 		logger.info("show all list");
 		
 		model.addAttribute("list", boardservice.listAll());
+	}
+	
+	@RequestMapping(value="/read", method = RequestMethod.GET)
+	public void read(@RequestParam("bno") int bno, Model model) throws Exception {
+			model.addAttribute(boardservice.read(bno));
+	}	
+	
+	@RequestMapping(value="/remove", method = RequestMethod.POST)
+	public String remove(@RequestParam("bno") int bno, RedirectAttributes rttr) throws Exception {
+			boardservice.remove(bno);
+			
+			rttr.addFlashAttribute("msg", "SUCCESS");
+			
+			return "redirect:/board/listAll"; 
 	}
 }
