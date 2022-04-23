@@ -51,15 +51,31 @@ public class BoardController {
 	
 	@RequestMapping(value="/read", method = RequestMethod.GET)
 	public void read(@RequestParam("bno") int bno, Model model) throws Exception {
-			model.addAttribute(boardservice.read(bno));
+		model.addAttribute(boardservice.read(bno));
 	}	
+	
+	@RequestMapping(value="/modify", method = RequestMethod.GET)
+	public void modifyGET(int bno, Model model) throws Exception {
+		model.addAttribute(boardservice.read(bno)); 
+	}
+	
+	@RequestMapping(value="/modify", method = RequestMethod.POST)
+	public String modifyPOST(BoardVO board, RedirectAttributes rttr) throws Exception {
+		logger.info("modify 수정중..");
+		
+		boardservice.modify(board);
+		
+		rttr.addFlashAttribute("msg", "success");
+		
+		return "redirect:/board/listAll";
+	}
 	
 	@RequestMapping(value="/remove", method = RequestMethod.POST)
 	public String remove(@RequestParam("bno") int bno, RedirectAttributes rttr) throws Exception {
-			boardservice.remove(bno);
+		boardservice.remove(bno);
 			
-			rttr.addFlashAttribute("msg", "SUCCESS");
+		rttr.addFlashAttribute("msg", "success");
 			
-			return "redirect:/board/listAll"; 
+		return "redirect:/board/listAll"; 
 	}
 }
