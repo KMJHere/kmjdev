@@ -3,6 +3,7 @@ package org.devBoard.controller;
 import javax.inject.Inject;
 
 import org.devBoard.domain.BoardVO;
+import org.devBoard.domain.Criteria;
 import org.devBoard.service.BoardService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -47,6 +48,13 @@ public class BoardController {
 		logger.info("show all list");
 		
 		model.addAttribute("list", boardservice.listAll());
+	}
+	
+	@RequestMapping(value="/listCri", method = RequestMethod.GET)
+	public void listCri(Criteria cri, Model model) throws Exception {
+		logger.info("show list Page With..");
+		
+		model.addAttribute("list", boardservice.listCriteria(cri));
 	}
 	
 	@RequestMapping(value="/read", method = RequestMethod.GET)

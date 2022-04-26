@@ -3,7 +3,7 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
 <mapper namespace="org.devBoard.mapper.BoardMapper">
-	<select id="read" resultType="org.devBoard.domain.BoardVO">
+	<select id="read" resultType="BoardVO">
 		Select
 			bno,
 			title,
@@ -16,7 +16,7 @@
 		Where bno = #{bno}
 	</select>
 	
-	<select id="listAll" resultType="org.devBoard.domain.BoardVO">
+	<select id="listAll" resultType="BoardVO">
 		<![CDATA[
 			Select
 				bno,
@@ -32,6 +32,46 @@
 			Order By
 				bno Desc,
 				regdate Desc 
+		]]>
+	</select>
+	
+	<select id="listPage" resultType="BoardVO">
+		<![CDATA[
+			Select
+				bno,
+				title,
+				content,
+				writer,
+				regdate,
+				viewcnt
+			From
+				tbl_board
+			Where 1 = 1
+			And bno > 0
+			Order By
+				bno Desc,
+				regdate Desc 
+			limit #{page}, 10
+		]]>
+	</select>
+	
+	<select id="listCriteria" resultType="BoardVO">
+		<![CDATA[
+			Select
+				bno,
+				title,
+				content,
+				writer,
+				regdate,
+				viewcnt
+			From
+				tbl_board
+			Where 1 = 1
+			And bno > 0
+			Order By
+				bno Desc,
+				regdate Desc 
+			limit #{pageStart}, #{perPageNum}
 		]]>
 	</select>
 	
