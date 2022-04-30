@@ -43,6 +43,11 @@ public class BoardDAOImpl implements BoardDAO{
 	}
 	
 	@Override
+	public int countPaging(Criteria cri) throws Exception {
+		return session.selectOne(namespace + ".countPaging", cri);
+	}
+	
+	@Override
 	public void create(BoardVO vo) throws Exception { 
 		session.insert(namespace+".create", vo);    
 	}

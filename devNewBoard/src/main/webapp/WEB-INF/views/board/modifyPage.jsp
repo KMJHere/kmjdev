@@ -125,57 +125,52 @@
     <!--=== End Breadcrumbs ===-->
     
     <div class="container content blog-full-width">	    
-	<form role="form" method="post">
-		<input type="hidden" name="bno" value="${boardVO.bno}">
+	<form role="form" action="modifyPage" method="post">
+		<input type="hidden" name="page" value="${cri.page}">
+		<input type="hidden" name="perPageNum" value="${cri.perPageNum}">
+		<div class="box-body">
+			<div class="form-group">
+				<label for="exampleInputEmail1">BNO</label>
+				<input type="text" name="bno" class="form-control" value="${boardVO.bno}" readonly="readonly"> 			
+			</div>
+			<div class="form-group">
+				<label for="exampleInputEmail1">제목</label>
+				<input type="text" name="title" class="form-control" value="${boardVO.title}"> 			
+			</div>
+			<div class="form-group">
+				<label for="exampleInputPassword1">내용</label>
+				<textarea class="form-control" name="content" rows="3">${boardVO.content}</textarea> 			
+			</div>
+			<div class="form-group">
+				<label for="exampleInputEmail1">작성자</label>
+				<input type="text" name="writer" class="form-control" value="${boardVO.writer}"> 			
+			</div>
+		</div>
 	</form>
 	
-	<div class="box-body">
-		<div class="form-group">
-			<label for="exampleInputEmail1">제목</label>
-			<input type="text" name="title" class="form-control" value="${boardVO.title}" readonly="readonly"> 			
-		</div>
-		<div class="form-group">
-			<label for="exampleInputPassword1">내용</label>
-			<textarea class="form-control" name="content" rows="3" readonly="readonly">${boardVO.content}</textarea> 			
-		</div>
-		<div class="form-group">
-			<label for="exampleInputEmail1">작성자</label>
-			<input type="text" name="writer" class="form-control" value="${boardVO.writer}" readonly="readonly"> 			
-		</div>
-	</div>
-	
 	<div class="box-footer">
-		<button type="submit" class="btn btn-warning">Modify</button>
-		<button type="submit" class="btn btn-danger">REMOVE</button>
-		<button type="submit" class="btn btn-primary">LIST ALL</button>
+		<button type="submit" class="btn btn-primary">SAVE</button>
+		<button type="submit" class="btn btn-warning">CANCEL</button>
 	</div>
 	</div>
 <script>
 	var result = "${msg}";
 	
 	if(result == "success") {
-		alert("정상적으로 처리되었습니다."); 
+		alert("정상적으로 등록되었습니다."); 
 	}  
+
 	
-	$(document).ready(function(){
+	$(function() {
 		var formObj = $("form[role='form']");
 		
-		console.log(formObj);
+		$(".btn-warning").on("click", function() {
+			self.location = "/board/listPage?page=${cri.page}&perPageNum=${cri.perPageNum}";
+		});
 		
-		$(".btn-warning").on("click", function(){
-			formObj.attr("action", "/board/modify");
-			formObj.attr("method", "get");
+		$(".btn-primary").on("click", function() {
 			formObj.submit();
-		});
-		
-		$(".btn-danger").on("click", function(){
-			formObj.attr("action", "/board/remove");
-			formObj.submit();
-		});
-		
-		$(".btn-primary").on("click", function(){
-			self.location = "/board/listAll";
-		});
+		});		
 	});
 </script>
 </div>

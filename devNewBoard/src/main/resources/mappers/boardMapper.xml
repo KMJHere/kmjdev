@@ -75,6 +75,17 @@
 		]]>
 	</select>
 	
+	<select id="countPaging" resultType="int">
+		<![CDATA[
+			Select
+				Count(bno)
+			From
+				tbl_board
+			Where 1 = 1
+			And bno > 0
+		]]>
+	</select>
+	
 	<insert id="create">
 		Insert Into tbl_board
 		(	
