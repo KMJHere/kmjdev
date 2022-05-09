@@ -6,6 +6,7 @@ import javax.inject.Inject;
 
 import org.devBoard.domain.BoardVO;
 import org.devBoard.domain.Criteria;
+import org.devBoard.domain.SearchCriteria;
 import org.devBoard.persistence.BoardDAO;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -100,6 +101,25 @@ public class BoardDAOTest {
 																		.encode();
 		logger.info("/board/read?bno=12&perPageNum=20");
 		logger.info(uriComponents.toString());
+	}
+	
+	@Test
+	public void testDynamic1() throws Exception {
+		SearchCriteria cri = new SearchCriteria();
+		cri.setPage(3);
+		cri.setPerPageNum(10);
+		cri.setSearchType("글");
+		cri.setKeyword("t");
+		
+		logger.info("------------------------------------");
+		
+		List<BoardVO> list = dao.listSearch(cri);
+		
+		for(BoardVO boardVO : list) {
+			logger.info(boardVO.getbno() + ":" + boardVO.gettitle());
+		}
+		
+		logger.info("count:" + dao.listSearchCount(cri));
 	}
 
 }

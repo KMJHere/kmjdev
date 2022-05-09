@@ -14,21 +14,22 @@
     <link rel="shortcut icon" href="favicon.ico">
 
     <!-- CSS Global Compulsory -->
-    <link rel="stylesheet" href="/assets/plugins/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/Unify1.6/assets/plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/Unify1.6/assets/css/style.css">
 
     <!-- CSS Implementing Plugins -->
-    <link rel="stylesheet" href="/assets/plugins/line-icons/line-icons.css">
-    <link rel="stylesheet" href="/assets/plugins/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/Unify1.6/assets/plugins/line-icons/line-icons.css">
+    <link rel="stylesheet" href="/Unify1.6/assets/plugins/font-awesome/css/font-awesome.min.css">
 
     <!-- CSS Page Style -->    
-    <link rel="stylesheet" href="/assets/css/pages/blog.css">
+    <link rel="stylesheet" href="/Unify1.6/assets/css/pages/blog.css">
 
     <!-- CSS Theme -->    
-    <link rel="stylesheet" href="/assets/css/theme-colors/default.css">
+    <link rel="stylesheet" href="/Unify1.6/assets/css/theme-colors/default.css">
 
     <!-- CSS Customization -->
-    <link rel="stylesheet" href="/assets/css/custom.css">
+    <link rel="stylesheet" href="/Unify1.6/assets/css/custom.css">
+    <script src="/js/jquery/jquery-3.6.0.min.js"></script>
     
 </head>
 <body>
@@ -71,7 +72,7 @@
                         <span class="fa fa-bars"></span>
                     </button>
                     <a class="navbar-brand" href="/">
-                        <img id="logo-header" src="/assets/img/oneday-logo.png" alt="Logo">
+                        <img id="logo-header" src="/Unify1.6/assets/img/oneday-logo.png" alt="Logo">
                     </a>
                 </div>
 
@@ -174,8 +175,7 @@
 			<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
 				<li><a href="list${pageMaker.makeSearch(pageMaker.endPage + 1)}">&raquo;</a></li>
 			</c:if>
-		</ul>
-		
+		</ul>		
 	</div>
 <script>
 	var result = "${msg}";
