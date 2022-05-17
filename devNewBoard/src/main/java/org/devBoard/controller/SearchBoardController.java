@@ -2,6 +2,7 @@ package org.devBoard.controller;
 
 import javax.inject.Inject;
 
+import org.devBoard.domain.BoardVO;
 import org.devBoard.domain.PageMaker;
 import org.devBoard.domain.SearchCriteria;
 import org.devBoard.service.BoardService;
@@ -59,5 +60,46 @@ public class SearchBoardController {
 		rttr.addFlashAttribute("msg", "SUCCESS");
 		
 		return "redirect:/sboard/list";
+	}
+	
+	@RequestMapping(value="/modifyPage", method=RequestMethod.GET)
+	public void modifyPagingGET(int bno, @ModelAttribute("cri") SearchCriteria cri, Model model) throws Exception {
+		model.addAttribute(boardservice.read(bno));
+	}
+	
+	@RequestMapping(value="/modifyPage", method=RequestMethod.POST)
+	public String modifyPagingPOST(BoardVO board, SearchCriteria cri, RedirectAttributes rttr) throws Exception {
+		logger.info(cri.toString());
+		
+		boardservice.modify(board);
+		
+		rttr.addAttribute("page", cri.getPage());
+		rttr.addAttribute("perPageNum", cri.getPerPageNum());
+		rttr.addAttribute("searchType", cri.getSearchType());
+		rttr.addAttribute("keyword", cri.getKeyword());
+		
+		rttr.addFlashAttribute("msg", "SUCCESS");
+		
+		logger.info(rttr.toString());
+		
+		return "redirect:/sboard/list";
+	}
+	
+	@RequestMapping(value="/register", method=RequestMethod.GET)
+	public void registGET() throws Exception {
+		logger.info("reigst get...");
+	}
+	
+	@RequestMapping(value="/register", method=RequestMethod.POST)
+	public String registPOST(BoardVO board, RedirectAttributes rttr) throws Exception {
+		logger.info("regist post");
+		logger.info(board.toString());
+		
+		boardservice.regist(board);
+		
+		rttr.addFlashAttribute("msg", "SUCCESS");
+		
+		return "redirect:/sboard/list";
+	
 	}
 }

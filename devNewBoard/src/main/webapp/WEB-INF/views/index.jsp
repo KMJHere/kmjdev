@@ -14,21 +14,21 @@
     <link rel="shortcut icon" href="favicon.ico">
 
     <!-- CSS Global Compulsory -->
-    <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="/Unify1.6/assets/plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/Unify1.6/assets/css/style.css">
 
     <!-- CSS Implementing Plugins -->
-    <link rel="stylesheet" href="assets/plugins/line-icons/line-icons.css">
-    <link rel="stylesheet" href="assets/plugins/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/Unify1.6/assets/plugins/line-icons/line-icons.css">
+    <link rel="stylesheet" href="/Unify1.6/assets/plugins/font-awesome/css/font-awesome.min.css">
 
     <!-- CSS Page Style -->    
-    <link rel="stylesheet" href="assets/css/pages/blog.css">
+    <link rel="stylesheet" href="/Unify1.6/assets/css/pages/blog.css">
 
     <!-- CSS Theme -->    
-    <link rel="stylesheet" href="assets/css/theme-colors/default.css">
+    <link rel="stylesheet" href="/Unify1.6/assets/css/theme-colors/default.css">
 
     <!-- CSS Customization -->
-    <link rel="stylesheet" href="assets/css/custom.css">
+    <link rel="stylesheet" href="/Unify1.6/assets/css/custom.css">
 </head>	
 
 <body>
@@ -59,7 +59,7 @@
                         <span class="fa fa-bars"></span>
                     </button>
                     <a class="navbar-brand" href="index.html">
-                        <img id="logo-header" src="assets/img/oneday-logo.png" alt="Logo">
+                        <img id="logo-header" src="/Unify1.6/assets/img/oneday-logo.png" alt="Logo">
                     </a>
                 </div>
 
@@ -118,7 +118,7 @@
         <!--Blog Post-->        
     	<div class="blog margin-bottom-40">
             <div class="blog-img">
-                <img class="img-responsive" src="assets/img/sliders/4.jpg" alt="">
+                <img class="img-responsive" src="/Unify1.6/assets/img/sliders/4.jpg" alt="">
             </div>
         	<h2><a href="blog_item_option1.html">Unify is an incredibly beautiful and fully responsive Bootstrap 3 Template</a></h2>
             <div class="blog-post-tags">
@@ -162,19 +162,19 @@
                 <div class="carousel slide carousel-v1" id="myCarousel">
                     <div class="carousel-inner">
                         <div class="item active">
-                            <img alt="" src="assets/img/sliders/1.jpg">
+                            <img alt="" src="/Unify1.6/assets/img/sliders/1.jpg">
                             <div class="carousel-caption">
                                 <p>Facilisis odio, dapibus ac justo acilisis gestinas.</p>
                             </div>
                         </div>
                         <div class="item">
-                            <img alt="" src="assets/img/sliders/3.jpg">
+                            <img alt="" src="/Unify1.6/assets/img/sliders/3.jpg">
                             <div class="carousel-caption">
                                 <p>Cras justo odio, dapibus ac facilisis into egestas.</p>
                             </div>
                             </div>
                         <div class="item">
-                            <img alt="" src="assets/img/sliders/2.jpg">
+                            <img alt="" src="/Unify1.6/assets/img/sliders/2.jpg">
                             <div class="carousel-caption">
                                 <p>Justo cras odio apibus ac afilisis lingestas de.</p>
                             </div>
@@ -231,7 +231,7 @@
                 <div class="row">
                     <!-- About -->
                     <div class="col-md-3 md-margin-bottom-40">
-                        <a href="index.html"><img id="logo-footer" class="footer-logo" src="assets/img/logo2-default.png" alt=""></a>
+                        <a href="index.html"><img id="logo-footer" class="footer-logo" src="/Unify1.6/assets/img/logo2-default.png" alt=""></a>
                         <p>About Unify dolor sit amet, consectetur adipiscing elit. Maecenas eget nisl id libero tincidunt sodales.</p>
                         <p>Duis eleifend fermentum ante ut aliquam. Cras mi risus, dignissim sed adipiscing ut, placerat non arcu.</p>    
                     </div><!--/col-md-3-->
@@ -347,23 +347,23 @@
 </div><!--/wrapper-->
 
 <!-- JS Global Compulsory -->           
-<script type="text/javascript" src="assets/plugins/jquery/jquery.min.js"></script>
-<script type="text/javascript" src="assets/plugins/jquery/jquery-migrate.min.js"></script>
-<script type="text/javascript" src="assets/plugins/bootstrap/js/bootstrap.min.js"></script> 
-<script type="text/javascript" src="assets/plugins/back-to-top.js"></script>
+<script type="text/javascript" src="/Unify1.6/assets/plugins/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="/Unify1.6/assets/plugins/jquery/jquery-migrate.min.js"></script>
+<script type="text/javascript" src="/Unify1.6/assets/plugins/bootstrap/js/bootstrap.min.js"></script> 
+<script type="text/javascript" src="/Unify1.6/assets/plugins/back-to-top.js"></script>
 <!-- JS Customization -->
-<script type="text/javascript" src="assets/js/custom.js"></script>
+<script type="text/javascript" src="/Unify1.6/assets/js/custom.js"></script>
 <!-- JS Page Level -->           
-<script type="text/javascript" src="assets/js/app.js"></script>
+<script type="text/javascript" src="/Unify1.6/assets/js/app.js"></script>
 <script type="text/javascript">
     jQuery(document).ready(function() {
         App.init();      
    });
 </script>
 <!--[if lt IE 9]>
-    <script src="assets/plugins/respond.js"></script>
-    <script src="assets/plugins/html5shiv.js"></script>
-    <script src="assets/js/plugins/placeholder-IE-fixes.js"></script>
+    <script src="/Unify1.6/assets/plugins/respond.js"></script>
+    <script src="/Unify1.6/assets/plugins/html5shiv.js"></script>
+    <script src="/Unify1.6/assets/js/plugins/placeholder-IE-fixes.js"></script>
 <![endif]-->
 
 </body>
